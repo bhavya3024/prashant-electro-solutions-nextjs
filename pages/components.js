@@ -29,64 +29,135 @@ import SectionExamples from "/pages-sections/Components-Sections/SectionExamples
 import SectionDownload from "/pages-sections/Components-Sections/SectionDownload.js";
 
 import styles from "/styles/jss/nextjs-material-kit/pages/components.js";
+import exampleStyles from "/styles/jss/nextjs-material-kit/pages/componentsSections/exampleStyle.js";
+
+
 
 const useStyles = makeStyles(styles);
+const useStyles2 = makeStyles(exampleStyles);
+
+const REPAIR_ITEMS = [
+  {
+      name: 'Fridge',
+      src: '/img/fridge.webp',
+  },
+  {
+      name: 'Washing Machine',
+      src: '/img/washing-machine.webp',
+  },
+  {
+      name: 'Microwave',
+      src: '/img/microwave.webp',
+  },
+  {
+      name: 'Geyser',
+      src: '/img/geyser.webp',
+  },
+  {
+      name: 'RO',
+      src: '/img/RO.webp',
+  },
+  {
+      name: 'Mixi-Grinder',
+      src: '/img/mixi-grinder.webp',
+  },
+  {
+      name: 'Press',
+      src: '/img/press.png',
+  },
+  {
+      name: 'Pedestal Fan',
+      src: '/img/pedestal-fan.webp',
+  },
+  {
+      name: 'Cooler',
+      src: '/img/cooler.webp',
+  },
+  {
+      name: 'House Wiring',
+      src: '/img/house-wiring.jpeg',
+  },
+  {
+      name: 'Air Conditioner',
+      src: '/img/ac.webp',
+  },
+  {
+      name: 'Induction Cooker',
+      src: '/img/ic.webp',
+  },
+  {
+      name: 'Kettle',
+      src: '/img/kettle.webp',
+  },
+  {
+      name: 'Heater',
+      src: '/img/heater.webp',
+  },
+  {
+      name: 'LED TV',
+      src: '/img/led-tv.png',
+  },
+  {
+      name: 'Ceiling Fan',
+      src: '/img/ceiling-fan.webp',
+  },
+  {
+      name: 'Inverter',
+      src: '/img/inverter.jpg'
+  },
+  {
+      name: 'Home Theatre',
+      src: '/img/home-theatre.webp'
+  },
+  {
+      name: 'Concealed Lighting',
+      src: '/img/lighting.jpeg'
+  },
+  {
+      name: 'Chimney',
+      src: '/img/chimney.webp'
+  },
+  {
+      name: 'Toaster',
+      src: '/img/toaster.jpg'
+  }
+];
 
 export default function Components(props) {
   const classes = useStyles();
+  const classes2 = useStyles2();
   const { ...rest } = props;
   return (
     <div>
       <Header
-        brand="NextJS Material Kit"
+        brand="PRASHANT ELECTRO SOLUTIONS"
         rightLinks={<HeaderLinks />}
         fixed
-        color="transparent"
+        color="black"
+        className="header-title"
         changeColorOnScroll={{
           height: 400,
           color: "white"
         }}
         {...rest}
       />
-      <Parallax image="/img/nextjs_header.jpg">
-        <div className={classes.container}>
-          <GridContainer>
-            <GridItem>
-              <div className={classes.brand}>
-                <h1 className={classes.title}>NextJS Material Kit.</h1>
-                <h3 className={classes.subtitle}>
-                  A Badass Material Kit based on Material-UI and NextJS.
-                </h3>
-              </div>
-            </GridItem>
-          </GridContainer>
-        </div>
+      <Parallax image="/img/prashant-electro-solutions.jpg">
       </Parallax>
 
       <div className={classNames(classes.main, classes.mainRaised)}>
-        <SectionBasics />
-        <SectionNavbars />
-        <SectionTabs />
-        <SectionPills />
-        <SectionNotifications />
-        <SectionTypography />
-        <SectionJavascript />
-        <SectionCarousel />
-        <SectionCompletedExamples />
-        <SectionLogin />
-        <GridItem md={12} className={classes.textCenter}>
-          <Link href="/login">
-            <a className={classes.link}>
-              <Button color="primary" size="lg" simple>
-                View Login Page
-              </Button>
-            </a>
-          </Link>
-        </GridItem>
-        <SectionExamples />
-        <SectionDownload />
+        <div>
+          <h3 className="info">Established in 2015, Prashant Electro Solutions deals in electrical
+          and electronics repair of following electrical appliances such as:</h3>
+          <GridContainer>
+            {REPAIR_ITEMS.map((item, index) =>
+            <GridItem key={`${index}_item`} xs={12} sm={12} md={4}>
+              <img className={`${classes2.imageRounded} item-image`} width={200} height={200} src={item.src} />
+              <p className="item-name">{item.name}</p>
+            </GridItem>
+            )}
+          </GridContainer>
+        </div>
       </div>
-      <Footer />
     </div>
   );
 }

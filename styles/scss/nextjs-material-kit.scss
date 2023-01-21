@@ -28,3 +28,31 @@
 @import "plugins/plugin-nouislider";
 @import "plugins/plugin-react-datetime";
 @import "plugins/plugin-react-slick";
+
+.makeStyles-title-3 {
+    color: black;
+}
+
+.makeStyles-subtitle-4 {
+    color: black;
+}
+
+.item-name {
+    text-align: center;
+}
+
+.item-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.info {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.header-title {
+    font-weight: bold;
+}
